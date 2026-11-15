@@ -1,0 +1,34 @@
+import { prisma } from "../prisma/client.js";
+
+export class FilmeService{
+
+    async create(dados: {titulo: string; nota: number; imagem: string; })
+    {
+        await prisma.filme.create({
+            data: dados,
+        });
+    }
+
+    async delete(id: number)
+    {
+        // TODO: remover o filme com esse id usando prisma.filme.delete
+    }
+
+    async findAll()
+    {
+        return await prisma.filme.findMany();
+    }
+
+    async findById(id: number)
+    {
+        return await prisma.filme.findUnique({
+            where: {id}
+        });
+    }
+
+    async update(id:number, dados: {titulo: string; nota: number; imagem: string; })
+    {
+        // TODO: atualizar o filme com esse id usando prisma.filme.update
+    }
+
+}
